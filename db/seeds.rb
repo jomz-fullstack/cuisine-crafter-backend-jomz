@@ -1,16 +1,25 @@
-reviews = [
+user1 = User.where(email: "test1@example.com").first_or_create(password: "password", password_confirmation: "password")
+user2 = User.where(email: "test2@example.com").first_or_create(password: "password", password_confirmation: "password")
+user3 = User.where(email: "test2@example.com").first_or_create(password: "password", password_confirmation: "password")
+
+user1_reviews = [
     {
         header:"Taste delicious",
         body:"the pasta was very creamy",
         stars:3,
         recipe_id:1,
+
     },
+]
+user2_reviews = [ 
     {
         header:"It was not that great",
         body:"the steak was over cooked",
         stars:1,
         recipe_id:2,
     },
+]
+user3_reviews = [   
     {
         header:"Best food ive had in a long time",
         body:"would come back again!",
@@ -49,8 +58,18 @@ recipes = [
     },
 ]
 
-reviews.each do |each_review|
-    Review.create each_review
+user1_reviews.each do |each_review|
+    user1.reviews.create each_review
+    puts "creating review #{each_review}"
+end
+
+user2_reviews.each do |each_review|
+    user2.reviews.create each_review
+    puts "creating review #{each_review}"
+end
+
+user3_reviews.each do |each_review|
+    user3.reviews.create each_review
     puts "creating review #{each_review}"
 end
 
