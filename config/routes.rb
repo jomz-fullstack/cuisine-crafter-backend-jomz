@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :reviews
   resources :recipes
-  resources :reviews,
+  devise_for :users,
   path: '',
     path_names: {
       sign_in: 'login',
