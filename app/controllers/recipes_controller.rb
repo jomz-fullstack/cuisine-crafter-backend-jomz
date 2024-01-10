@@ -3,4 +3,7 @@ class RecipesController < ApplicationController
       recipes = Recipe.all 
       render json: recipes
     end
+    def show
+      recipes = Recipes.find(params[:id])
+    end
 end

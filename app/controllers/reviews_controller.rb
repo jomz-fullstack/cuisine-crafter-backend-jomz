@@ -4,9 +4,12 @@ class ReviewsController < ApplicationController
     reviews = Review.all
     render json: reviews
   end
+  def show
+    reviews = Review.find(params[:id])
+  end
   def create 
-    review = Review.new(review_params)
-    if review.save
+    review = Review.create(review_params)
+    if review.valid?
       render json: review, status: :created
     else
       render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
@@ -19,9 +22,10 @@ class ReviewsController < ApplicationController
     if review.valid?
       render json: review
     else 
-      render json: review.errors, status: 422
+      render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
     end
   end
+  
   
   def destroy 
     review = Review.find(params[:id])
