@@ -1,36 +1,40 @@
 class ReviewsController < ApplicationController
 
+  def index
+    reviews = Review.all
+    render json: reviews
+  end
   def create 
-    reviews = Review.create(review_params)
-    if reviews.valid?
-      render json: reviews
+    review = Review.new(review_params)
+    if review.save
+      render json: review, status: :created
     else
-      render json: reviews.errors, status: 422
+      render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
+  
   def update
-    reviews = Review.find(params[:id])
-    reviews.update(review_params)
-    if reviews.valid?
-      render json: reviews
+    review = Review.find(params[:id])
+    review.update(review_params)
+    if review.valid?
+      render json: review
     else 
-      render json: reviews.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
   
   def destroy 
-    reviews = Review.find(params[:id])
-    if reviews.destroy
+    review = Review.find(params[:id])
+    if review.destroy
       render json: review
     else
-      render json: reviews.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
 
 
   private 
   def review_params
-    params.require(:reviews).permit(:header, :body, :stars)
+    params.require(:review).permit(:header, :body, :stars, :user_id, :recipe_id)
   end
 end
