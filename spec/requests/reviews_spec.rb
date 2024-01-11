@@ -2,57 +2,30 @@ require 'rails_helper'
 
 RSpec.describe "Reviews", type: :request do
   describe "POST / create" do
+    let!(:user) { User.create(email: "test@example.com", password: "password") }
+    let!(:recipe) { Recipe.create(name: "Sample Recipe", image: "sample.jpg", instructions: "Sample instructions", ingredients: "Sample ingredients", protein: "Sample protein", nutrition: "Sample nutrition") }
+
     it 'creates a review' do
       review_params = {
-        reviews: {
-          header:"Best food ive had in a long time",
-          body:"would come back again!",
-          stars:5
+        review: {
+          header: "Best food ive had in a long time",
+          body: "would come back again!",
+          stars: 5,
+          user_id: user.id,
+          recipe_id: recipe.id,
         }
       }
+
       post '/reviews', params: review_params
 
-      expect(response).to have_http_status(200)
+      created_review = Review.first
+      expect(created_review.header).to eq 'Best food ive had in a long time'
+      expect(created_review.body).to eq 'would come back again!'
+      expect(created_review.stars).to eq 5
+      expect(created_review.user_id).to eq user.id
+      expect(created_review.recipe_id).to eq recipe.id
 
-      reviews = Review.first
-      expect(reviews.header).to eq 'Best food ive had in a long time'
-      expect(reviews.body).to eq 'would come back again!'
-      expect(reviews.stars).to eq 5
+      expect(response).to have_http_status(:created)
     end
   end
-
-  # describe "PATCH / update" do 
-  #   it "updates a review" do 
-  #     review_params = {
-  #       reviews: {
-  #         header:"Best food ive had in a long time",
-  #         body:"would come back again!",
-  #         stars:5
-  #       }
-  #     }
-  #     post '/reviews', params: review_params
-
-  #     reviews = Review.first 
-  #     p reviews 
-
-  #     # update the review
-  #     updated_params = {
-  #       reviews: {
-  #         header:"Best food ive had in a long time",
-  #         body:"would come back again!",
-  #         stars:4
-  #       }
-  #     }
-  # Failure/Error: patch '/reviews/#{reviews.id}', params:  updated_params
-     
-  #    URI::InvalidURIError:
-  #      bad URI(is not URI?): "http://www.example.com:80/reviews/\#{reviews.id}"
-  #     patch '/reviews/#{reviews.id}', params:  updated_params
-
-  #     updated_review = Review.find(review.id)
-  #     expect(response).to have_http_status(200)
-  #     expect(updated_review.stars).to eq 4
-  #   end
-  # end
-
 end
