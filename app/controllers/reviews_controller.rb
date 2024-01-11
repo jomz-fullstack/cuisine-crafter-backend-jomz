@@ -7,14 +7,16 @@ class ReviewsController < ApplicationController
   def show
     reviews = Review.find(params[:id])
   end
-  def create 
-    review = Review.create(review_params)
-    if review.valid?
+
+  def create
+    review = Review.new(review_params)
+    if review.save
       render json: review, status: :created
     else
       render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
     end
   end
+  
   
   def update
     review = Review.find(params[:id])
