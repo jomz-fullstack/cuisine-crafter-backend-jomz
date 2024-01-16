@@ -5,7 +5,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://localhost:3001'  # <- change this to allow requests from any domain while in development.
+      origins 'cuisinecrafter.onrender.com'  # <- change this to allow requests from any domain while in development.
 
       resource '*',
         headers: ["Authorization"],
