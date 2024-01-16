@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: cuisine_crafter_backend_jomz_production
-  username: cuisine_crafter_backend_jomz
-  password: <%= ENV["CUISINE_CRAFTER_BACKEND_JOMZ_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
