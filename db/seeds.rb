@@ -55,13 +55,11 @@ user1_reviews = [
         header:"Taste delicious",
         body:"the pasta was very creamy",
         stars:3,
-        recipe_id:1,
     },
     {
         header:"Taste delicious",
         body:"the pasta was very creamy",
         stars:3,
-        recipe_id:2,
     },
 ]
 user2_reviews = [ 
@@ -69,13 +67,11 @@ user2_reviews = [
         header:"It was not that great",
         body:"the steak was over cooked",
         stars:1,
-        recipe_id:2,
     },
     {
         header:"Taste delicious",
         body:"the pasta was very creamy",
         stars:3,
-        recipe_id:3,
     },
 ]
 user3_reviews = [   
@@ -83,13 +79,11 @@ user3_reviews = [
         header:"Best food ive had in a long time",
         body:"would come back again!",
         stars:5,
-        recipe_id:3,
     },
     {
         header:"Taste delicious",
         body:"the pasta was very creamy",
         stars:3,
-        recipe_id:1,
     },
     
 ]

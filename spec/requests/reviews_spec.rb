@@ -12,7 +12,6 @@ RSpec.describe "Reviews", type: :request do
           body: "would come back again!",
           stars: 5,
           user_id: user.id,
-          recipe_id: recipe.id,
         }
       }
 
@@ -23,7 +22,6 @@ RSpec.describe "Reviews", type: :request do
       expect(created_review.body).to eq 'would come back again!'
       expect(created_review.stars).to eq 5
       expect(created_review.user_id).to eq user.id
-      expect(created_review.recipe_id).to eq recipe.id
 
       expect(response).to have_http_status(:created)
     end
