@@ -22,7 +22,11 @@ recipes = [
     {
         name: "Salmon",
         image: "https://www.cookingclassy.com/wp-content/uploads/2018/05/grilled-salmon-3.jpg",
-        instructions:"cut the salmon into pieces", 
+        instructions:"1. Preheat oven to 400 degrees. Line a large baking pan with parchment paper; set aside. 
+        2. Whisk together lemon juice, dried dill, honey, garlic, 1/2 teaspoon salt, and 1/2 teaspoon ground black pepper in a small bowl; set aside.
+        3. Place salmon fillets in the middle of the prepared baking pan; spoon lemon juice mixture over salmon. Place 2 lemon slices on each fillet. Place zucchini slices and tomatoes in a medium bowl. 
+        4. Toss with olive oil, remaining 1/2 teaspoon salt, and 1/2 teaspoon black pepper. Arrange vegetables around salmon.
+        5. Bake 13 to 17 minutes or until salmon reaches 145 degrees. Garnish with fresh dill, if desired.", 
         protein:"salmon",
         ingredients:"salt and pepper the salmon",
         nutrition:"25 grams of protein",
@@ -52,38 +56,38 @@ end
 
 user1_reviews = [
     {
-        header:"Taste delicious",
-        body:"the pasta was very creamy",
-        stars:3,
+        header:"Beef Tataki",
+        body:"The Beef Tataki was cooked to perfection",
+        stars:5,
     },
     {
-        header:"Taste delicious",
-        body:"the pasta was very creamy",
-        stars:3,
+        header:"Beef Lo Mein Noodles",
+        body:"You have to try this recipe!",
+        stars:5,
     },
 ]
 user2_reviews = [ 
     {
-        header:"It was not that great",
-        body:"the steak was over cooked",
-        stars:1,
+        header:"Chicken Stir-Fry",
+        body:"Easy to cook and great taste",
+        stars:4,
     },
     {
-        header:"Taste delicious",
-        body:"the pasta was very creamy",
-        stars:3,
+        header:"Vegetarian Tacos",
+        body:"An amazing combination of flavors",
+        stars:4,
     },
 ]
 user3_reviews = [   
     {
-        header:"Best food ive had in a long time",
-        body:"would come back again!",
+        header:"Shrimp Scampi Linguine",
+        body:"The pasta was creamy and yummy",
         stars:5,
     },
     {
-        header:"Taste delicious",
-        body:"the pasta was very creamy",
-        stars:3,
+        header:"Chicken Curry",
+        body:"The best curry I have made",
+        stars:4,
     },
     
 ]
